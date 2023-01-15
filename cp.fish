@@ -1,5 +1,5 @@
 # Hyprland
-cp -r ~/.config/hypr/hyprland.conf ~/.dots
+cp -r ~/.config/hypr/ ~/.dots
 
 # Helix
 cp -r ~/.config/helix ~/.dots
