@@ -1,13 +1,20 @@
 # Hyprland
-cp -r ~/.config/hypr/hyprland.conf ./
+cp -r ~/.config/hypr/hyprland.conf ~/.dots
 
 # Helix
-cp -r ~/.config/helix ./
+cp -r ~/.config/helix ~/.dots
 
 # Nixos
-cp -r /etc/nixos/ ./
+cp -r /etc/nixos/ ~/.dots
 
 # Home-manager
-cp -r ~/.config/nixpkgs/ ./
-rm -r ./home
-mv -f ./nixpkgs ./home
+cp -r ~/.config/nixpkgs/ ~/.dots
+rm -r ~/.dots/home
+mv -f ~/.dots/nixpkgs ~/.dots/home
+
+# Update Git
+set PAST "($PWD)"
+cd ~/.dots
+git add ./
+git commit -m "Updated dot files"
+git push
