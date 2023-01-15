@@ -1,5 +1,6 @@
 # Eww
 cp -r ~/.config/eww ~/.dots
+git rm --cached eww/.dotfiles-hyprland
 
 # Hyprland
 cp -r ~/.config/hypr/ ~/.dots
