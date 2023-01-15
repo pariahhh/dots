@@ -1,0 +1,26 @@
+(defwidget bar []
+  (centerbox :orientation "h"
+    (nothing)
+	(nothing)
+	(temp)))
+
+(defwidget nothing [] 
+  (box :class "rcorners" ""))
+
+(defwidget temp [] 
+  (box :class "rcorners" "${cputemp}"))
+
+(defpoll cputemp :interval "1s"
+  "~/.config/eww/scripts/gettemp")
+
+(defwindow bar
+  :exclusive true
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "1%"
+					  :width "90%"
+					  :height "4%"
+					  :anchor "top center")
+  :reserve (struts :side "top" :distance "2%")
+  (bar))

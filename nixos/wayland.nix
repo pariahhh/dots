@@ -1,5 +1,5 @@
 { config, pkgs, ...}: let
-   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
   # Hyprland
   hyprland = (import flake-compat {
@@ -7,14 +7,11 @@
   }).defaultNix;
 
   # Hyprland XDG-Desktop Portal
-  xdph = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/fufexan/webcord-flake/archive/refs/heads/master.zip";
-  }).defaultNix;
-
-  # Hyprland desktop portal
-  xdg-desktop-portal-hyprland = xdph.packages.${pkgs.system}.default.override {
-    hyprland-share-picker = xdph.packages.${pkgs.system}.hyprland-share-picker.override {inherit hyprland;};
-  };
+  xdg-desktop-portal-hyprland =
+    let
+      xdph = builtins.getFlake "github:hyprwm/xdg-desktop-portal-hyprland";
+    in
+    xdph.packages.${pkgs.system}.hyprland-share-picker.override { inherit hyprland; };
 
   # Webcord
   webcord = (import flake-compat {
@@ -42,7 +39,6 @@ in {
     eww-wayland
     wofi
     xdg-desktop-portal-hyprland
-
 
     # polkit
     polkit
