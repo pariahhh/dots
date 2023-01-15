@@ -1,5 +1,5 @@
 # Get current path
-set PAST "($PWD)"
+set PAST $PWD
 cd ~/.dots
 
 # Eww
