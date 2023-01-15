@@ -62,6 +62,10 @@ in {
 
   programs.hyprland = {
     enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
     package = hyprland.packages.${pkgs.system}.default;
     nvidiaPatches = true;
   };

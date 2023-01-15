@@ -53,6 +53,8 @@ in {
     bat
     mlocate
     gitui
+    pciutils
+    hwinfo
 
     # screenshots
     grim
