@@ -47,6 +47,15 @@ in {
     webcord.packages.${pkgs.system}.default
   ];
 
+  # XDG Portal
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    extraPortals = [
+      xdg-desktop-portal-hyprland
+    ];
+  };
+  
   # Fix cursor for Nvidia
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
