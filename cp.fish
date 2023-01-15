@@ -1,8 +1,9 @@
+# Get current path
+set PAST "($PWD)"
 cd ~/.dots
 
 # Eww
 cp -r ~/.config/eww ~/.dots
-git rm --cached eww/.dotfiles-hyprland
 
 # Hyprland
 cp -r ~/.config/hypr/ ~/.dots
@@ -22,3 +23,6 @@ mv -f ~/.dots/nixpkgs ~/.dots/home
 git add ./
 git commit -m "Updated dot files"
 git push
+
+# Go back
+cd $PAST
