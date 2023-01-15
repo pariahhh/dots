@@ -1,3 +1,6 @@
+# Eww
+cp -r ~/.config/eww ~/.dots
+
 # Hyprland
 cp -r ~/.config/hypr/ ~/.dots
 
