@@ -1,3 +1,5 @@
+cd ~/.dots
+
 # Eww
 cp -r ~/.config/eww ~/.dots
 git rm --cached eww/.dotfiles-hyprland
@@ -17,8 +19,6 @@ rm -r ~/.dots/home
 mv -f ~/.dots/nixpkgs ~/.dots/home
 
 # Update Git
-set PAST "($PWD)"
-cd ~/.dots
 git add ./
 git commit -m "Updated dot files"
 git push
