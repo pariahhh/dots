@@ -73,11 +73,10 @@ in {
     dolphin
 
     # Haskell
-    #haskellPackages.ghcup
-    #haskellPackages.haskus-utils-variant
-    #retry
-    #haskellPackages.streamly
-    
+    haskell.compiler.ghc942
+    stack
+    cabal-install
+        
     # useful
     keepassxc
     ungoogled-chromium

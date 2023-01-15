@@ -37,6 +37,8 @@ in {
 
   environment.systemPackages = with pkgs; [
     wayland
+    wdisplays
+    wlr-randr
     eww-wayland
     wofi
     xdg-desktop-portal-hyprland
