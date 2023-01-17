@@ -3,15 +3,19 @@ set PAST $PWD
 cd ~/.dots
 
 # Eww
+rm -r ~/.dots/eww
 cp -r ~/.config/eww ~/.dots
 
 # Hyprland
+rm -r ~/.dots/hypr
 cp -r ~/.config/hypr/ ~/.dots
 
 # Helix
+rm -r ~/.dots/helix
 cp -r ~/.config/helix ~/.dots
 
 # Nixos
+rm -p ~/.dots/nixos
 cp -r /etc/nixos/ ~/.dots
 
 # Home-manager
