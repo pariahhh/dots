@@ -1,2 +1,0 @@
-#!/bin/sh
-cat /sys/class/thermal/thermal_zone*/temp | sed 's/\(.\)..$/.\1°C/'

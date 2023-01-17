@@ -1,23 +1,34 @@
 (defwidget bar []
   (centerbox :orientation "h"
-    (nothing)
-	(temp)
-	(date)))
+    (left)
+	(center)
+	(right)))
 
-(defwidget nothing [] 
-  (box :class "rcorners" ""))
+(defwidget left [] 
+  (box :class "rcorners"))
 
-(defwidget date []
-  (box :class "rcorners" "${datetime}"))
+(defwidget center [] 
+  (box :class "rcorners center"
+    (metric :label "${EWW_TEMPS.K10TEMP_TCCD1}°C"
+            :value {EWW_TEMPS.K10TEMP_TCCD1}
+            :min 41
+            :max 100)))
 
-(defpoll datetime :interval "1s"
-  `date "+%B %e %a %H:%M:%S %Y"`)
+(defwidget right [] 
+  (box :class "rcorners"))
 
-(defwidget temp [] 
-  (box :class "rcorners" "${cputemp}"))
-
-(defpoll cputemp :interval "1s"
-  "~/.config/eww/scripts/gettemp")
+;; helper widgets
+(defwidget metric [?label value ?onchange ?class min max]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box {label != "" ? label : value})
+    (scale :class {class != "" ? class : value > (min + (max - min) / 4) ? value > (min + (max - min) / 4 + min + (max - min) / 2) ? "error" : "warning" : "normal"}
+           :min min
+           :max max
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
 
 (defwindow bar
   :exclusive true
@@ -25,7 +36,7 @@
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "1%"
-					  :width "90%"
+					  :width "97%"
 					  :height "4%"
 					  :anchor "top center")
   :reserve (struts :side "top" :distance "2%")

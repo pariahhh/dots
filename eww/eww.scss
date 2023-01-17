@@ -2,10 +2,47 @@
   all: unset; //Unsets everything so you can style everything from scratch
 }
 
-.rcorners {
-  padding: 10px;
+.center {
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-right: 20px;
+  margin-left: 20px
+}
+
+// bar color
+.metric scale.normal trough highlight {
+  all: unset;
+  background-color: #bbff00;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale.warning trough highlight {
+  all: unset;
+  background-color: #ff8800;
+  color: #000000;
+  border-radius: 10px;
+}
+.metric scale.error trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+// "indent" color
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
   margin-left: 10px;
-  margin-right: 10px;
-  background-color: #787878;
+  margin-right: 20px;
+}
+
+.rcorners {
+  background-color: #595959;
+  border-color: #33ccff #00ff99 #00ff99 #33ccff;
+  border-style: solid;
+  border-width: 3px;
   border-radius: 25px;
 }
