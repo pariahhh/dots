@@ -6,37 +6,24 @@
   padding-right: 40px;
   padding-left: 40px;
   margin-right: 20px;
-  margin-left: 20px
+  margin-left: 20px;
 }
 
 // bar color
-.metric scale.normal trough highlight {
-  all: unset;
-  background-color: #bbff00;
-  color: #000000;
+.normal {
+  color: #bbff00;
+  background-color: #303030;
   border-radius: 10px;
 }
-.metric scale.warning trough highlight {
-  all: unset;
-  background-color: #ff8800;
-  color: #000000;
-  border-radius: 10px;
+.warning {
+  color: #ff8800;
+  background-color: #303030;
+  border-radius: 20px;
 }
-.metric scale.error trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
+.error {
+  color: #D35D6E;
+  background-color: #303030;
   border-radius: 10px;
-}
-// "indent" color
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
 }
 
 .rcorners {

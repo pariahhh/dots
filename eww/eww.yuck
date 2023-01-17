@@ -9,7 +9,11 @@
 
 (defwidget center [] 
   (box :class "rcorners center"
-    (metric :label "${EWW_TEMPS.K10TEMP_TCCD1}°C"
+       :halign "center"
+       :hexpand false
+       :width 50
+    (metric :label "${EWW_TEMPS.K10TEMP_TCCD1}°C  "
+            :icon "images/temp.png"
             :value {EWW_TEMPS.K10TEMP_TCCD1}
             :min 41
             :max 100)))
@@ -18,17 +22,20 @@
   (box :class "rcorners"))
 
 ;; helper widgets
-(defwidget metric [?label value ?onchange ?class min max]
+(defwidget metric [?label ?icon value ?onchange ?class min max]
+  (eventbox
   (box :orientation "h"
        :class "metric"
        :space-evenly false
+       :width 50
+    (image :path {icon != "" ? icon : ""}
+           :image-width  35
+           :image-height 35)
     (box {label != "" ? label : value})
-    (scale :class {class != "" ? class : value > (min + (max - min) / 4) ? value > (min + (max - min) / 4 + min + (max - min) / 2) ? "error" : "warning" : "normal"}
-           :min min
-           :max max
-           :active {onchange != ""}
-           :value value
-           :onchange onchange)))
+    (circular-progress :class {class != "" ? class : value > (min + (max - min) / 4) ? value > (min + (max - min) / 4 + min + (max - min) / 2) ? "error" : "warning" : "normal"}
+                       :value {(value - min) / (max - min) * 100}
+                       :thickness 4
+                       :width 25))))
 
 (defwindow bar
   :exclusive true
