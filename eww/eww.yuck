@@ -6,33 +6,42 @@
 
 (defwidget left [] 
   (box :class "rcorners"))
-
+    
 (defwidget center [] 
   (box :class "rcorners center"
        :halign "center"
-       :hexpand false
        :width 50
-    (metric :label "${EWW_TEMPS.K10TEMP_TCCD1}°C  "
+    (metric :label "${round(EWW_TEMPS.K10TEMP_TCCD1, 1)}°C"
             :icon "images/temp.png"
             :value {EWW_TEMPS.K10TEMP_TCCD1}
             :min 41
+            :max 100)
+    (metric :label "${round(EWW_CPU.avg, 1)}%"
+            :icon "images/cpu.png"
+            :value {EWW_CPU.avg}
+            :min 0
+            :max 100)
+    (metric :label "${round(EWW_RAM.used_mem_perc, 1)}%"
+            :icon "images/ram.png"
+            :value {EWW_RAM.used_mem_perc}
+            :min 0
             :max 100)))
 
 (defwidget right [] 
   (box :class "rcorners"))
 
 ;; helper widgets
-(defwidget metric [?label ?icon value ?onchange ?class min max]
-  (eventbox
+(defwidget metric [?label ?icon ?tooltip value ?onchange ?class min max]
+  (eventbox :halign "fill"
+            :tooltip tooltip
   (box :orientation "h"
        :class "metric"
-       :space-evenly false
-       :width 50
+       :space-evenly true
     (image :path {icon != "" ? icon : ""}
            :image-width  35
            :image-height 35)
-    (box {label != "" ? label : value})
-    (circular-progress :class {class != "" ? class : value > (min + (max - min) / 4) ? value > (min + (max - min) / 4 + min + (max - min) / 2) ? "error" : "warning" : "normal"}
+    (label :text {label})
+    (circular-progress :class "${class != "" ? class : value > (min + (max - min) / 4) ? value > (min + (max - min) / 4 + min + (max - min) / 2) ? "error" : "warning" : "normal"} circ"
                        :value {(value - min) / (max - min) * 100}
                        :thickness 4
                        :width 25))))
