@@ -28,7 +28,10 @@
             :max 100)))
 
 (defwidget right [] 
-  (box :class "rcorners"))
+  (box :class "rcorners" datetime))
+
+(defpoll datetime :interval "1s"
+  `date "+%B %e %a %H:%M:%S %Y"`)
 
 ;; helper widgets
 (defwidget metric [?label ?icon ?tooltip value ?onchange ?class min max]
