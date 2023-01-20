@@ -55,7 +55,9 @@ in {
     gitui
     pciutils
     hwinfo
-
+    python310Packages.gpustat
+    wineWowPackages.waylandFull
+    
     # screenshots
     grim
     slurp
