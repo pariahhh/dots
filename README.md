@@ -1,7 +1,8 @@
 # General Information
-| --    | --                      |
-| OS    | NixOs                   |
-| DE    | Hyprland (Wayland)      | 
-| CPU   | AMD Ryzen 5 3600XT      |
-| GPU   | NVIDIA GeForce GTX 1660 |
-| Shell | Fish                    |
+| Name | Info |
+| --- | --- |
+| OS | NixOs |
+| DE | Hyprland (Wayland) | 
+| CPU | AMD Ryzen 5 3600XT |
+| GPU | NVIDIA GeForce GTX 1660 |
+| Shell | Fish |
