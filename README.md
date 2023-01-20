@@ -1,3 +1,14 @@
+# Directory
+- ![Fish](fish)
+  - ![Functions](fish/functions)
+- ![Homemanager](home)
+- ![Hyprland](hypr)
+- ![NixOs](nixos)
+- ![Helix](helix)
+- ![Eww](eww)
+  - ![Images](eww/images)
+  - ![Scripts](eww/scripts)
+
 # General Information
 | Name | Info |
 | --- | --- |
@@ -10,13 +21,3 @@
 # Eww Bar
 ![EwwBar](.github/ewwbar.png)
 
-# Directory
-- ![Fish](fish)
-  - ![Functions](fish/functions)
-- ![Homemanager](home)
-- ![Hyprland](hypr)
-- ![NixOs](nixos)
-- ![Helix](helix)
-- ![Eww](eww)
-  - ![Images](eww/images)
-  - ![Scripts](eww/scripts)
