@@ -1,3 +1,5 @@
+![Tiramisu](.github/tiramisu.jpg)
+
 # Directory
 - ![Fish](fish)
   - ![Functions](fish/functions)
