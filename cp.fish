@@ -15,13 +15,18 @@ rm -r ~/.dots/helix
 cp -r ~/.config/helix ~/.dots
 
 # Nixos
-rm -p ~/.dots/nixos
+rm -r ~/.dots/nixos
 cp -r /etc/nixos/ ~/.dots
 
 # Home-manager
 cp -r ~/.config/nixpkgs/ ~/.dots
 rm -r ~/.dots/home
 mv -f ~/.dots/nixpkgs ~/.dots/home
+
+# Fish
+rm -r ~/.dots/fish
+cp -r ~/.config/fish ~/.dots
+rm ~/.dots/fish/functions/weather.fish
 
 # Update Git
 git add ./
