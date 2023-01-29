@@ -43,7 +43,7 @@ in {
 
     # terminal
     fish
-    alacritty
+    kitty
     tabbed
     ffmpeg
     neofetch
