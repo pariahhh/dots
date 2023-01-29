@@ -34,6 +34,7 @@ in {
     # gaming
     steam
     obs-studio
+    prismlauncher
 
     # pipewire stuff
     pavucontrol
@@ -42,8 +43,9 @@ in {
 
     # terminal
     fish
-    kitty
     alacritty
+    tabbed
+    ffmpeg
     neofetch
     htop
     tigervnc
@@ -61,7 +63,10 @@ in {
     # screenshots
     grim
     slurp
+
+    # Imaging tools
     feh
+    mpv
 
     # js
     yarn
@@ -87,6 +92,9 @@ in {
     firefox
     gimp
 
+    # java
+    jdk17_headless
+    
     # other
     spotify
     obsidian
