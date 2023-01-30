@@ -59,6 +59,7 @@ in {
     hwinfo
     python310Packages.gpustat
     wineWowPackages.waylandFull
+    rustup
     
     # screenshots
     grim
