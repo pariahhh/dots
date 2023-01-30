@@ -52,6 +52,7 @@ in {
     nmap
     git
     unzip
+    cmake
     bat
     mlocate
     gitui
