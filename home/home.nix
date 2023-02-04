@@ -1,16 +1,12 @@
 { config, pkgs, ... }: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  GIT_SECRET = import ~/.config/secret/git-key.nix;
+  GIT_SECRET = import /etc/secrets/git-key.nix;
 in {
   imports = [
   ];
 
-  # Allow Unfree
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-  };
+  nixpkgs.config.allowUnfreePredicate = _: true;
 
   # Git
   programs.git = {
@@ -25,11 +21,12 @@ in {
 
   # Hyprland
   # wayland.windowManager.hyprland.enable = true;
-
+  
   home.packages = with pkgs; [ 
     # communinication
-    discord 
-    discord-canary
+    # they don't work for me
+    # discord 
+    # discord-canary
     
     # gaming
     steam
@@ -38,7 +35,7 @@ in {
 
     # pipewire stuff
     pavucontrol
-    helvum
+    #helvum
     noisetorch
 
     # terminal
@@ -53,6 +50,8 @@ in {
     git
     unzip
     cmake
+    llvm
+    lld
     bat
     mlocate
     gitui
@@ -93,6 +92,7 @@ in {
     ungoogled-chromium
     firefox
     gimp
+    libreoffice
 
     # java
     jdk17_headless
