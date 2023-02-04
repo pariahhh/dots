@@ -45,6 +45,7 @@ in {
 
   # Nvidia fix
   hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   programs.hyprland = {
     enable = true;
