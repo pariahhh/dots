@@ -25,8 +25,8 @@ in {
   home.packages = with pkgs; [ 
     # communinication
     # they don't work for me
-    # discord 
-    # discord-canary
+    discord 
+    discord-canary
     
     # gaming
     steam
