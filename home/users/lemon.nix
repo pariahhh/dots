@@ -24,6 +24,7 @@ in {
     steam
     obs-studio
     prismlauncher
+    grapejuice
 
     # Pipewire
     pavucontrol
