@@ -67,6 +67,7 @@ in {
 
     # Rust
     rustup
+    pkg-config
 
     # Screenshots
     grim
