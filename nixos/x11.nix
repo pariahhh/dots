@@ -1,7 +1,7 @@
 { config, pkgs, ... }: 
 
 {
-  envirenment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     sddm
     plasma-desktop
   ];

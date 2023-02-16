@@ -22,12 +22,15 @@ in {
 
     # Gaming
     steam
+    protonup-ng
     obs-studio
     prismlauncher
     grapejuice
+    lutris
 
     # Pipewire
     pavucontrol
+    # helvum
     noisetorch
 
     # Internet
@@ -40,6 +43,7 @@ in {
     kitty
     neofetch
     bat
+    exa
 
     # vnc
     tigervnc
@@ -64,6 +68,7 @@ in {
 
     # wine
     wineWowPackages.waylandFull
+    # wine-wayland
 
     # Rust
     rustup
@@ -87,6 +92,7 @@ in {
 
     # editor
     helix
+    hexyl
 
     # Haskell
     haskell.compiler.ghc942
@@ -103,5 +109,7 @@ in {
     # Other
     spotify
     obsidian
+    keepassxc
+    libreoffice
   ];
 }
