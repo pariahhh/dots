@@ -30,7 +30,7 @@ in {
 
     # Pipewire
     pavucontrol
-    # helvum
+    #helvum
     noisetorch
 
     # Internet
@@ -44,6 +44,7 @@ in {
     neofetch
     bat
     exa
+    openssl
 
     # vnc
     tigervnc
@@ -105,6 +106,9 @@ in {
 
     # Java
     jdk17_headless
+
+    # Fonts
+    nerdfonts
 
     # Other
     spotify
