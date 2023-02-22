@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: let
+in {
 
-{
   environment.systemPackages = with pkgs; [
     pipewire
     ntfs3g

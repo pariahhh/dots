@@ -68,8 +68,9 @@ in {
     pciutils
 
     # wine
-    wineWowPackages.waylandFull
-    # wine-wayland
+    wineWowPackages.stagingFull
+    bottles
+    winetricks
 
     # Rust
     rustup
@@ -83,6 +84,8 @@ in {
     feh
     mpv
     gimp
+    # Code source to image
+    silicon
 
     # js
     yarn
@@ -99,6 +102,7 @@ in {
     haskell.compiler.ghc942
     stack
     cabal-install
+    ihp-new
 
     # Borwsers
     firefox
@@ -115,5 +119,6 @@ in {
     obsidian
     keepassxc
     libreoffice
+    xautoclick
   ];
 }
