@@ -24,21 +24,28 @@ in {
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   environment.systemPackages = with pkgs; [
     wayland
+    # egl-wayland
     wdisplays
     wlr-randr
     eww-wayland
     wofi
 
+    libsForQt514.qt5.qtwayland
+    qt5ct
+    libva
+    nvidia-vaapi-driver
+
     # discord but based
     webcord.packages.${pkgs.system}.default
   ];
-
-  # Fix cursor for Nvidia
-  environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   # Enable polkit
   security.polkit.enable = true;

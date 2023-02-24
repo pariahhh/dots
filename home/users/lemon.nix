@@ -1,9 +1,14 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, inputs, ... }: let
   GIT_SECRET = import /etc/secrets/git-key.nix;
 in {
   # Path
   home.username = "lemon";
   home.homeDirectory = "/home/lemon";
+
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+    NIXPKGS_ALLOW_BROKEN = "1";
+  };
 
   # Git
   programs.git = {
@@ -16,12 +21,27 @@ in {
     };
   };
 
+  # zsh
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --impure'';
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "darkblood";
+    };
+  };
+
   home.packages = with pkgs; [
+    inputs.unreale4.packages.x86_64-linux.default
     # Discord
     discord-canary
 
     # Gaming
     steam
+    sc-controller
     protonup-ng
     obs-studio
     prismlauncher
@@ -41,6 +61,8 @@ in {
 
     # Terminal
     kitty
+    zsh
+    oh-my-zsh
     neofetch
     bat
     exa
@@ -113,6 +135,9 @@ in {
 
     # Fonts
     nerdfonts
+
+    # Unreal engine {broken}
+    # ue4
 
     # Other
     spotify

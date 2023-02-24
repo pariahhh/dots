@@ -108,7 +108,8 @@
       "inputs": {
         "cargo2nix": "cargo2nix",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "unreale4": "unreale4"
       }
     },
     "rust-overlay": {
@@ -133,6 +134,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "unreale4": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1677205455,
+        "narHash": "sha256-Lxsts4e7dKpywsiXnpSphgk/kAN2EW5vqk6SdeS85Eo=",
+        "owner": "LemonjamesD",
+        "repo": "ue4.27.2",
+        "rev": "44592065cf021d9de3af0e8cf4aa20215453b93f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LemonjamesD",
+        "repo": "ue4.27.2",
         "type": "github"
       }
     },

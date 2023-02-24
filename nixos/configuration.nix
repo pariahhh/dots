@@ -32,6 +32,9 @@ in {
     options = "--delete-older-than 3d";
   };
 
+  # zsh default shell
+  users.defaultUserShell = pkgs.zsh;
+
   system.autoUpgrade.enable = true;
   system.stateVersion = "22.11";
 }

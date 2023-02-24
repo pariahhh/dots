@@ -33,8 +33,4 @@
 
   # CUPS
   services.printing.enable = true;
-
-  # Fish Shell
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
 }

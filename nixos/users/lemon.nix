@@ -1,6 +1,5 @@
 { config, pkgs, ... }: let
 in {
-
   environment.systemPackages = with pkgs; [
     pipewire
     ntfs3g
@@ -10,7 +9,7 @@ in {
     gnupg
     pinentry-curses 
   ];
-  
+
   # GNUPG
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -45,10 +44,11 @@ in {
   };
   
   services.gvfs.enable = true;
-  
+
   # env vars
   environment.sessionVariables = rec {
     PROGDIR = "/mnt/Programming/CodingShit";
     CC = "clang";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 }
