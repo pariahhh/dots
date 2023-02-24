@@ -20,7 +20,7 @@
 | DE | Hyprland (Wayland) | 
 | CPU | AMD Ryzen 5 3600XT |
 | GPU | NVIDIA GeForce GTX 1660 |
-| Shell | Fish |
+| Shell | Zsh |
 
 # Eww Bar
 ![EwwBar](.github/ewwbar.png)
