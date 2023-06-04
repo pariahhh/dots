@@ -23,11 +23,6 @@ cp -r ~/.config/nixpkgs/ ~/.dots
 rm -r ~/.dots/home
 mv -f ~/.dots/nixpkgs ~/.dots/home
 
-# Fish
-rm -r ~/.dots/fish
-cp -r ~/.config/fish ~/.dots
-rm ~/.dots/fish/functions/weather.fish
-
 # Update Git
 git add ./
 git commit -m "Updated dot files"
