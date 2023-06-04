@@ -1,6 +1,13 @@
-{ config, pkgs, inputs, ... }: let
+{ config, pkgs, ... }: let
+  baseconfig = { allowUnfree = true; };
+  unstable = import <nixos-unstable> { config = baseconfig; };
   GIT_SECRET = import /etc/secrets/git-key.nix;
 in {
+
+  imports = [
+    "/home/lemon/.config/nixpkgs/helix.nix"
+  ];
+
   # Path
   home.username = "lemon";
   home.homeDirectory = "/home/lemon";
@@ -25,7 +32,7 @@ in {
   programs.zsh = {
     enable = true;
     shellAliases = {
-      rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --impure'';
+      rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --impure && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --impure'';
     };
     oh-my-zsh = {
       enable = true;
@@ -35,29 +42,30 @@ in {
   };
 
   home.packages = with pkgs; [
-    inputs.unreale4.packages.x86_64-linux.default
+    # Haguichi
+    logmein-hamachi
+    haguichi
     # Discord
-    discord-canary
+    # discord-canary
+    element-desktop
+    unstable.webcord-vencord
 
     # Gaming
     steam
+    protontricks
     sc-controller
     protonup-ng
-    obs-studio
+    unstable.obs-studio
     prismlauncher
-    grapejuice
     lutris
 
     # Pipewire
     pavucontrol
-    #helvum
+    # helvum
     noisetorch
 
     # Internet
     nmap
-
-    # GPU
-    python310Packages.gpustat
 
     # Terminal
     kitty
@@ -76,9 +84,12 @@ in {
 
     # C
     cmake
+    gnumake
+    gcc
 
     # git
     git
+    gitoxide
     gitui
 
     # llvm
@@ -90,12 +101,13 @@ in {
     pciutils
 
     # wine
-    wineWowPackages.stagingFull
+    wineWowPackages.stable
     bottles
     winetricks
 
     # Rust
     rustup
+    rust-analyzer
     pkg-config
 
     # Screenshots
@@ -113,17 +125,25 @@ in {
     yarn
     nodejs
 
+    # Python
+    python310
+    unstable.python310Packages.pip
+    python310Packages.gpustat
+    python310Packages.tkinter
+    python310Packages.python-uinput
+    tk
+
     # go
     go
 
     # editor
-    helix
     hexyl
 
     # Haskell
     haskell.compiler.ghc942
     stack
     cabal-install
+    haskellPackages.hindent
     ihp-new
 
     # Borwsers
@@ -145,5 +165,24 @@ in {
     keepassxc
     libreoffice
     xautoclick
+    SDL2
+    sqlitebrowser
+    youtube-dl
+    protonvpn-gui
+    nvtop
+    libqalculate
+    htop
+    cascadia-code
+    blender
+    sqlite
+
+    # Controller
+    qjoypad
+    jstest-gtk
+
+    # Bluetooth
+    bluez
+    bluez-tools
+    blueman
   ];
 }

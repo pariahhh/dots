@@ -7,9 +7,6 @@
       ./x11.nix;
 in {
   imports = [
-    # User specific settings
-    ./users/lemon.nix
-   
     ./hardware-configuration.nix
     ./settings.nix
     <home-manager/nixos>
@@ -33,6 +30,7 @@ in {
   };
 
   # zsh default shell
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
   system.autoUpgrade.enable = true;

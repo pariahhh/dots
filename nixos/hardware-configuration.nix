@@ -8,11 +8,10 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/d86571e3-b794-42aa-baef-8ea57756e5cd";
@@ -22,16 +21,6 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/6302-B95B";
       fsType = "vfat";
-    };
-
-  fileSystems."/mnt/Programmador" =
-    { device = "/dev/disk/by-uuid/01D78420CB137970";
-      fsType = "ntfs";
-    };
-
-  fileSystems."/mnt/Programming" =
-    { device = "/dev/disk/by-uuid/7BE462B403C20D04";
-      fsType = "ntfs";
     };
 
   fileSystems."/mnt/Gaming" =

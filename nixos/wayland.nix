@@ -6,13 +6,19 @@
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
 
+  # Hyprpaper
+  hyprpaper = (import flake-compat {
+    src = builtins.fetchTarball "https://github.com/hyprwm/hyprpaper/archive/refs/heads/main.zip";
+  }).defaultNix;
+
   # Webcord
   webcord = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/fufexan/webcord-flake/archive/refs/heads/master.zip";
   }).defaultNix;
 in {
   imports = [
-     hyprland.nixosModules.default
+    hyprland.nixosModules.default
+    hyprpaper.default
   ];
 
   # make stuff work on wayland
@@ -32,16 +38,17 @@ in {
 
   environment.systemPackages = with pkgs; [
     wayland
-    # egl-wayland
+    egl-wayland
     wdisplays
     wlr-randr
     eww-wayland
     wofi
+    copyq
 
     libsForQt514.qt5.qtwayland
     qt5ct
     libva
-    nvidia-vaapi-driver
+    #nvidia-vaapi-driver
 
     # discord but based
     webcord.packages.${pkgs.system}.default
@@ -52,10 +59,12 @@ in {
 
   # Nvidia fix
   hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   programs.hyprland = {
     enable = true;
     nvidiaPatches = true;
   };
+
+  programs.hyprpaper.enable = true;
 }
