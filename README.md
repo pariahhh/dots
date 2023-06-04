@@ -1,8 +1,6 @@
 ![Tiramisu](.github/tiramisu.jpg)
 
 # Directory
-- ![Fish](fish)
-  - ![Functions](fish/functions)
 - ![Homemanager](home)
   - ![Users](home/users)
 - ![Hyprland](hypr)
