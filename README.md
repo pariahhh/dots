@@ -13,7 +13,7 @@
   - ![Images](eww/images)
   - ![Scripts](eww/scripts)
 
-# General Information
+# General Information for user `lemon`
 | Name | Info |
 | --- | --- |
 | OS | NixOs |
