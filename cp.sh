@@ -25,7 +25,7 @@ mv -f ~/.dots/nixpkgs ~/.dots/home
 
 # Update Git
 git add ./
-git commit -m "Updated dot files"
+git commit -m "[SCRIPT] Updated dot files! 🚀"
 git push
 
 # Go back
