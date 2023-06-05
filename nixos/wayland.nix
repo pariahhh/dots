@@ -1,25 +1,17 @@
-{ config, pkgs, ...}: let
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+{ config, pkgs, hyprland, hyprpaper, ...}: let
 
-  # Hyprland
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-
-  # Hyprpaper
-  hyprpaper = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/hyprpaper/archive/refs/heads/main.zip";
-  }).defaultNix;
-
-  # Webcord
-  webcord = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/fufexan/webcord-flake/archive/refs/heads/master.zip";
-  }).defaultNix;
 in {
-  imports = [
-    hyprland.nixosModules.default
-    hyprpaper.default
-  ];
+  # boot loader
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    grub = {
+      efiSupport = true;
+      device = "nodev";
+    };
+  } ;
 
   # make stuff work on wayland
   environment.variables = {
@@ -45,13 +37,12 @@ in {
     wofi
     copyq
 
-    libsForQt514.qt5.qtwayland
+    libsForQt515.qt5.qtwayland
     qt5ct
     libva
     #nvidia-vaapi-driver
-
-    # discord but based
-    webcord.packages.${pkgs.system}.default
+  ] ++ [
+    hyprpaper
   ];
 
   # Enable polkit
@@ -61,10 +52,9 @@ in {
   hardware.nvidia.modesetting.enable = true;
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
+  programs.hyprland.package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland = {
     enable = true;
     nvidiaPatches = true;
   };
-
-  programs.hyprpaper.enable = true;
 }
