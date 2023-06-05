@@ -33,7 +33,7 @@ in {
     enable = true;
     shellAliases = {
       rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --impure --flake /etc/nixos && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --impure'';
-      update-dots = ''export GOBACK="$(pwd)" && cd ~/.dots/ && ./cp.sh && cd $GOBACK'';
+      update-dots = ''export GOBACK="$(pwd)" && cd ~/.dots/ && git pull && ./cp.sh && cd $GOBACK'';
     };
     oh-my-zsh = {
       enable = true;
