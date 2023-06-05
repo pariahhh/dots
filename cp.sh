@@ -11,8 +11,8 @@ rm -r ~/.dots/hypr
 cp -r ~/.config/hypr/ ~/.dots
 
 # Helix
-rm -r ~/.dots/helix
-cp -r ~/.config/helix ~/.dots
+# rm -r ~/.dots/helix
+# cp -r ~/.config/helix ~/.dots
 
 # Nixos
 rm -r ~/.dots/nixos
