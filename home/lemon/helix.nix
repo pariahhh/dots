@@ -4,7 +4,7 @@
     enable = true;
     package = helix-master.packages."x86_64-linux".default;
     settings = {
-      theme = "ayu_mirage";
+      theme = "ayu_light_transparent";
       icons = "nerdfonts";
       editor = {
         line-number = "relative";
@@ -21,10 +21,10 @@
 
         whitespace.render = "all";
         whitespace.characters = {
-          space = "·";
+          space = " ";
           nbsp = "⍽";
           tab = "→";
-          newline = "⤶";
+          newline = "↲";
         };
 
         lsp = {

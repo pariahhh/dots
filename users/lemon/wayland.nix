@@ -1,18 +1,6 @@
-{ config, pkgs, hyprland, hyprpaper, ...}: let
+{ config, pkgs, hyprland, xdg-desktop-portal-hyprland, ...}: let
 
 in {
-  # boot loader
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-    grub = {
-      efiSupport = true;
-      device = "nodev";
-    };
-  } ;
-
   # make stuff work on wayland
   environment.variables = {
     _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -31,18 +19,19 @@ in {
   environment.systemPackages = with pkgs; [
     wayland
     egl-wayland
+    hyprpaper
+    mako
     wdisplays
     wlr-randr
     eww-wayland
     wofi
     copyq
 
-    libsForQt515.qt5.qtwayland
+    libsForQt5.qt5.qtwayland
+    libsForQt5.polkit-kde-agent
     qt5ct
     libva
     #nvidia-vaapi-driver
-  ] ++ [
-    hyprpaper
   ];
 
   # Enable polkit
@@ -56,5 +45,10 @@ in {
   programs.hyprland = {
     enable = true;
     nvidiaPatches = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
   };
 }

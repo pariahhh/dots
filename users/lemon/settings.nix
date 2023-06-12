@@ -33,4 +33,8 @@
 
   # CUPS
   services.printing.enable = true;
+
+  # zsh default shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 }

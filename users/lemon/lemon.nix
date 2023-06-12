@@ -1,5 +1,16 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, use-wayland, ... }: let
+  backend = 
+    if use-wayland == true then 
+      ./wayland.nix
+    else
+      ./x11.nix;
 in {
+  imports = [
+    backend
+    ./polkit.nix
+    ./settings.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     pipewire
     ntfs3g
@@ -31,9 +42,6 @@ in {
     driSupport32Bit = true;
   };
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -56,26 +64,4 @@ in {
     CC = "clang";
     NIXPKGS_ALLOW_UNFREE = "1";
   };
-
-  # Make some extra kernel modules available to NixOS
-  boot.extraModulePackages = with config.boot.kernelPackages;
-    [ 
-      v4l2loopback.out
-    ];
-
-  # Activate kernel modules (choose from built-ins and extra ones)
-  boot.kernelModules = [
-    # Virtual Camera
-    "v4l2loopback"
-    # Virtual Microphone, built-in
-    "snd-aloop"
-    # Uinput
-    "uinput"
-  ];
-
-  # Set initial kernel module settings
-  # https://github.com/umlaeute/v4l2loopback
-  boot.extraModprobeConfig = ''
-    options v4l2loopback card_label="Virtual Camera"
-  '';
 }

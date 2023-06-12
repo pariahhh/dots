@@ -1,16 +1,10 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, secrets, inputs, ... }: let
   baseconfig = { allowUnfree = true; };
-  unstable = import <nixos-unstable> { config = baseconfig; };
-  GIT_SECRET = import /etc/secrets/git-key.nix;
 in {
 
   imports = [
-    "/home/lemon/.config/nixpkgs/helix.nix"
+    ./helix.nix
   ];
-
-  # Path
-  home.username = "lemon";
-  home.homeDirectory = "/home/lemon";
 
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = "1";
@@ -24,16 +18,18 @@ in {
     userEmail = "lemon@lemonjamesd.com";
     signing = {
       signByDefault = true;
-      key = GIT_SECRET;
+      key = secrets.git-key;
     };
   };
+
+  inputs.hypr-contrib.grimblast.enable = true;
 
   # zsh
   programs.zsh = {
     enable = true;
     shellAliases = {
-      rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --impure --flake /etc/nixos && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --impure'';
-      update-dots = ''export GOBACK="$(pwd)" && cd ~/.dots/ && git pull && ./cp.sh && cd $GOBACK'';
+      rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --flake /etc/nixos && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --flake /etc/nixos'';
+      update-dots = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && ./cp.sh && cd $GOBACK'';
     };
     oh-my-zsh = {
       enable = true;
@@ -49,14 +45,14 @@ in {
     # Discord
     # discord-canary
     element-desktop
-    unstable.webcord-vencord
+    webcord-vencord
 
     # Gaming
     steam
     protontricks
     sc-controller
     protonup-ng
-    unstable.obs-studio
+    obs-studio
     prismlauncher
     lutris
 
@@ -89,7 +85,6 @@ in {
     gcc
 
     # git
-    git
     gitoxide
     gitui
 
@@ -108,7 +103,7 @@ in {
 
     # Rust
     rustup
-    rust-analyzer
+    # rust-analyzer
     pkg-config
 
     # Screenshots
@@ -128,7 +123,7 @@ in {
 
     # Python
     python310
-    unstable.python310Packages.pip
+    python310Packages.pip
     python310Packages.gpustat
     python310Packages.tkinter
     python310Packages.python-uinput
@@ -176,6 +171,7 @@ in {
     cascadia-code
     blender
     sqlite
+    inkscape
 
     # Controller
     qjoypad
