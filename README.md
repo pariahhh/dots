@@ -14,9 +14,9 @@
       * ![Wayland/Hyprland Config](users/lemon/wayland.nix)
       * ![x11/KDE Config](users/lemon/x11.nix)
 - ![Helix](home/helix.nix)
-- ![Eww](eww)
-  * ![Images](eww/images)
-  * ![Scripts](eww/scripts)
+- ![Eww](https://github.com/LemonjamesD/dots/tree/eww)
+  * ![Images](https://github.com/LemonjamesD/dots/tree/eww/images)
+  * ![Scripts](https://github.com/LemonjamesD/dots/tree/eww/scripts)
 
 # General Information for user `lemon`
 | Name | Info |
