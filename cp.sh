@@ -14,7 +14,7 @@ cd ~/.config/eww
 git pull
 cp /etc/nixos/README.md ./
 git add README.md
-git commit -m "[SCRIPT] Updated `eww` README! 🚀"
+git commit -m "[SCRIPT] Updated \`eww\` README! 🚀"
 git push
 
 # Update eww git
