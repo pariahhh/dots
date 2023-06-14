@@ -1,4 +1,4 @@
-{ system, nixpkgs, home-manager, default-user, helix-master, secrets, stateVersion, hypr-contrib, ... }:
+{ system, nixpkgs, home-manager, default-user, helix-master, secrets, stateVersion, hypr-contrib, flatpaks, ... }:
 
 let
   username = default-user;
@@ -17,6 +17,9 @@ in
   "${username}" = home-manager.lib.homeManagerConfiguration {
     pkgs = pkgs;
     extraSpecialArgs = { inherit helix-master username homeDirectory secrets stateVersion hypr-contrib; }; 
-    modules = [ home-nix ];
+    modules = [
+      flatpaks.homeManagerModules.default
+      home-nix
+    ];
   };
 }

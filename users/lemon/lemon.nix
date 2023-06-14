@@ -35,6 +35,9 @@ in {
     enableSSHSupport = true;
   };
 
+  # Flatpak
+  services.flatpak.enable = true;
+
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl = { # this fixes the "glXChooseVisual failed" bug, context: https://github.com/NixOS/nixpkgs/issues/47932

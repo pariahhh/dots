@@ -15,6 +15,13 @@
       efiInstallAsRemovable = true;
       device = "nodev";
       extraEntries = ''
+        menuentry "Windows" {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          search --fs-uuid --no-floppy --set=root 8C07-315B
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+        }
         menuentry "Reboot" {
           reboot
         }

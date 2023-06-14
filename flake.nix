@@ -6,7 +6,7 @@
 
     # Home-manager packager
     home-manager.url = "github:nix-community/home-manager";
-    # helix bs
+    # helix bs (the workaround is insane)
     dream2nix.url = "github:nix-community/dream2nix";
     nci = {
       url = "github:yusdacra/nix-cargo-integration";
@@ -18,10 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hypr-contrib.url = "github:hyprwm/contrib";
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable";
   };
 
   outputs = {
-    self, nixpkgs, hyprland, xdg-desktop-portal-hyprland, home-manager, helix-master, hypr-contrib,... 
+    self, nixpkgs, hyprland, xdg-desktop-portal-hyprland, home-manager, helix-master, hypr-contrib, flatpaks, ... 
   }: let
     system = "x86_64-linux";
     stateVersion = "23.05";
@@ -33,7 +34,7 @@
     use-wayland = true;
   in {
     homeConfigurations = import ./home/home-configuration.nix { 
-      inherit nixpkgs system home-manager default-user helix-master secrets stateVersion hypr-contrib; 
+      inherit nixpkgs system home-manager default-user helix-master secrets stateVersion hypr-contrib flatpaks; 
     };
 
     nixosConfigurations = {

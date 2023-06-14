@@ -28,7 +28,7 @@ in {
     enable = true;
     shellAliases = {
       rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --flake /etc/nixos && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --flake /etc/nixos'';
-      update-dots = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && ./cp.sh && cd $GOBACK'';
+      update-dots = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && ./update-dots.sh && cd $GOBACK'';
     };
     oh-my-zsh = {
       enable = true;
@@ -41,10 +41,9 @@ in {
     # Haguichi
     logmein-hamachi
     haguichi
-    # Discord
-    # discord-canary
+    
+    # Matrix Client
     element-desktop
-    webcord-vencord
 
     # Gaming
     steam
@@ -182,4 +181,16 @@ in {
   ] ++ [
     hypr-contrib.packages.${pkgs.system}.grimblast
   ];
+
+  services.flatpak = {
+    remotes = {
+      "flathub" = "https://flathub.org/repo/flathub.flatpakrepo";
+      "flathub-beta" = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+    };
+    packages = [
+      "flathub:com.discordapp.Discord"
+      "flathub:de.shorsh.discord-screenaudio"
+      "flathub:xyz.armcord.ArmCord"
+    ];
+  };
 }
