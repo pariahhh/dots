@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, hypr-contrib, ... }: let
+{ config, pkgs, secrets, inputs, ... }: let
   baseconfig = { allowUnfree = true; };
 in {
 
@@ -22,7 +22,7 @@ in {
     };
   };
 
-  hypr-contrib.grimblast.enable = true;
+  inputs.hypr-contrib.grimblast.enable = true;
 
   # zsh
   programs.zsh = {
@@ -172,7 +172,6 @@ in {
     blender
     sqlite
     inkscape
-    audacity
 
     # Controller
     qjoypad
