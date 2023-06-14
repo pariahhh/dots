@@ -4,6 +4,7 @@ in {
 
   imports = [
     ./helix.nix
+    hypr-contrib
   ];
 
   home.sessionVariables = {
