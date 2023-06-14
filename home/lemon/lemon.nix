@@ -182,6 +182,4 @@ in {
   ] ++ [
     hypr-contrib
   ];
-
-  programs.grimblast.enable = true;
 }
