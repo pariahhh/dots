@@ -4,7 +4,6 @@ in {
 
   imports = [
     ./helix.nix
-    hypr-contrib
   ];
 
   home.sessionVariables = {
@@ -22,8 +21,6 @@ in {
       key = secrets.git-key;
     };
   };
-
-  hypr-contrib.grimblast.enable = true;
 
   # zsh
   programs.zsh = {
@@ -173,6 +170,7 @@ in {
     blender
     sqlite
     inkscape
+    hypr-contrib
 
     # Controller
     qjoypad
