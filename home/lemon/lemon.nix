@@ -4,6 +4,7 @@ in {
 
   imports = [
     ./helix.nix
+    ./spotify.nix
   ];
 
   home.sessionVariables = {
@@ -154,7 +155,6 @@ in {
     # ue4
 
     # Other
-    spotify
     obsidian
     keepassxc
     libreoffice
@@ -180,6 +180,6 @@ in {
     bluez-tools
     blueman
   ] ++ [
-    hypr-contrib
+    hypr-contrib.packages.${pkgs.system}.grimblast
   ];
 }
