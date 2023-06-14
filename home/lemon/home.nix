@@ -1,13 +1,12 @@
-{ config, pkgs, username, homeDirectory, inputs, ... }:
+{ config, pkgs, username, homeDirectory, stateVersion, hypr-contrib, ... }:
 
 {
-  imports = [ ./lemon.nix { inherit inputs; } ];
+  imports = [ ./lemon.nix { inherit hypr-contrib; } ];
 
   # Allow unfree
   nixpkgs.config.allowUnfreePredicate = _: true;
 
-  home.stateVersion = inputs.version;
   home = {
-    inherit username homeDirectory;
+    inherit username homeDirectory stateVersion;
   };
 }

@@ -20,8 +20,6 @@ in {
     # GNUPG
     gnupg
     pinentry-curses
-
-    grapejuice
   ];
 
   # bluetooth

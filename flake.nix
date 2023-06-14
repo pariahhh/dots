@@ -5,11 +5,18 @@
     xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     # Home-manager packager
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager";
+    # helix bs
+    dream2nix.url = "github:nix-community/dream2nix";
+    nci = {
+      url = "github:yusdacra/nix-cargo-integration";
+      inputs.dream2nix.follows = "dream2nix";
+    };
+    helix-master = {
+      url = "github:SoraTenshi/helix/new-daily-driver";
+      inputs.nci.follows = "nci";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix-master.url = "github:SoraTenshi/helix/new-daily-driver";
     hypr-contrib.url = "github:hyprwm/contrib";
   };
 
@@ -17,7 +24,7 @@
     self, nixpkgs, hyprland, xdg-desktop-portal-hyprland, home-manager, helix-master, hypr-contrib,... 
   }: let
     system = "x86_64-linux";
-    version = "23.05";
+    stateVersion = "23.05";
     
     host = "prometheus";
     default-user = "lemon";
@@ -26,13 +33,13 @@
     use-wayland = true;
   in {
     homeConfigurations = import ./home/home-configuration.nix { 
-      inherit nixpkgs system home-manager default-user helix-master secrets hypr-contrib version; 
+      inherit nixpkgs system home-manager default-user helix-master secrets stateVersion hypr-contrib; 
     };
 
     nixosConfigurations = {
       "prometheus" = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit hyprland xdg-desktop-portal-hyprland use-wayland version; };
+        specialArgs = { inherit hyprland xdg-desktop-portal-hyprland use-wayland stateVersion; };
         modules = [ 
           # System
           (./configuration.nix)

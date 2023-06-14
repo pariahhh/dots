@@ -1,4 +1,4 @@
-{ config, pkgs, version, ... }: let
+{ config, pkgs, stateVersion, ... }: let
 in {
   environment.systemPackages = with pkgs; [
     vim
@@ -15,6 +15,6 @@ in {
   };
 
   system.autoUpgrade.enable = true;
-  system.stateVersion = version;
+  system.stateVersion = stateVersion;
 }
 

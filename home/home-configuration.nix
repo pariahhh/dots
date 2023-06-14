@@ -1,4 +1,4 @@
-{ system, nixpkgs, home-manager, default-user, helix-master, secrets, hypr-contrib, ... }@inputs:
+{ system, nixpkgs, home-manager, default-user, helix-master, secrets, stateVersion, hypr-contrib, ... }:
 
 let
   username = default-user;
@@ -16,7 +16,7 @@ in
 {
   "${username}" = home-manager.lib.homeManagerConfiguration {
     pkgs = pkgs;
-    extraSpecialArgs = { inherit helix-master username homeDirectory secrets inputs; }; 
+    extraSpecialArgs = { inherit helix-master username homeDirectory secrets stateVersion hypr-contrib; }; 
     modules = [ home-nix ];
   };
 }

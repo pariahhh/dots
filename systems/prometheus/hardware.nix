@@ -15,6 +15,10 @@
       efiInstallAsRemovable = true;
       device = "nodev";
       extraEntries = ''
+        menuentry "Windows" {
+          search --set=root --file /dev/nvme0n1p1/efi/Microsoft/Boot/bootmgfw.efi
+          chainloader /dev/nvme0n1p1/efi/Microsoft/Boot/bootmgfw.efi
+        }
         menuentry "Reboot" {
           reboot
         }
@@ -51,6 +55,9 @@
     "snd-aloop"
     # Uinput
     "uinput"
+    # Xbox One
+    "xone"
+    "xpadneo"
   ];
 
   # Set initial kernel module settings
