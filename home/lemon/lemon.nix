@@ -170,7 +170,6 @@ in {
     blender
     sqlite
     inkscape
-    hypr-contrib
 
     # Controller
     qjoypad
@@ -180,5 +179,7 @@ in {
     bluez
     bluez-tools
     blueman
+  ] ++ [
+    hypr-contrib
   ];
 }
