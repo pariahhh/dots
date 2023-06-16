@@ -1,4 +1,4 @@
-{ config, pkgs, hyprland, xdg-desktop-portal-hyprland, ...}: let
+{ config, pkgs, inputs, ...}: let
 
 in {
   # make stuff work on wayland
@@ -41,7 +41,7 @@ in {
   hardware.nvidia.modesetting.enable = true;
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-  programs.hyprland.package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland = {
     enable = true;
     nvidiaPatches = true;
@@ -49,6 +49,6 @@ in {
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [ inputs.xdg-desktop-portal-hyprland ];
   };
 }

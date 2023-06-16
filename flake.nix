@@ -1,17 +1,4 @@
-let
-  try-import = import ./helpers/try-import.nix;
-
-  system = "x86_64-linux";
-  stateVersion = "23.05";
-
-  # Get the host and user
-  host = builtins.getEnv "HOST";
-  user = builtins.getEnv "USERNAME";
-
-  secrets = import ./secrets.nix;
-
-  use-wayland = false;
-in {
+{
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
@@ -36,9 +23,22 @@ in {
 
   outputs = {
     self, nixpkgs, hyprland, xdg-desktop-portal-hyprland, home-manager, helix-master, hypr-contrib, flatpaks, ... 
-  }@inputs: {
+  }@inputs: let
+    try-import = import ./helpers/try-import.nix;
+
+    system = "x86_64-linux";
+    stateVersion = "23.05";
+
+    # Get the host and user
+    host = "prometheus";
+    user = "lemon";
+
+    secrets = import ./secrets.nix;
+
+    use-wayland = false;  
+  in {
     homeConfigurations = import ./home/home-configuration.nix { 
-      inherit nixpkgs system stateVersion host user secrets use-wayland inputs; 
+      inherit home-manager nixpkgs system stateVersion host user secrets use-wayland inputs; 
     };
 
     nixosConfigurations = {
