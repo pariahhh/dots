@@ -1,7 +1,6 @@
-{ config, pkgs, secrets, inputs, ... }: let
+{ config, pkgs, secrets, username, homeDirectory, stateVersion, inputs, ... }: let
   baseconfig = { allowUnfree = true; };
 in {
-
   home = {
     inherit username homeDirectory stateVersion;
   };
