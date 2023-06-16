@@ -37,23 +37,25 @@
 
     use-wayland = false;
     
+    mkNixOS = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit nixpkgs system stateVersion host user secrets use-wayland inputs; };
+      modules = [ 
+        # System
+        (./configuration.nix)
+        (./systems + "/${host}/hardware.nix")
+        # User
+        (./users + "/${user}")
+      ];
+    };
   in {
     homeConfigurations = import ./home/home-configuration.nix { 
       inherit home-manager nixpkgs system stateVersion host user secrets use-wayland inputs; 
     };
 
     nixosConfigurations = {
-      "${host}" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit nixpkgs system stateVersion host user secrets use-wayland inputs; };
-        modules = [ 
-          # System
-          (./configuration.nix)
-          (./systems + "/${host}/hardware.nix")
-          # User
-          (./users + "/${user}")
-        ];
-      };
+      "${host}" = mkNixOS;
+      "nixos" = mkNixOS;
     };
   };
 }
