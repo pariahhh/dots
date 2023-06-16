@@ -2,6 +2,10 @@
   baseconfig = { allowUnfree = true; };
 in {
 
+  home = {
+    inherit username homeDirectory stateVersion;
+  };
+
   imports = [
     ./helix.nix
     ./spotify.nix

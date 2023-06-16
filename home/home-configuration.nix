@@ -3,7 +3,7 @@
 let
   username = default-user;
   homeDirectory = "/home/${default-user}";
-  configHome = "${homeDirectory}/.nix";
+  configHome = "/etc/nixos";
 
   pkgs = import nixpkgs {
     inherit system;
@@ -11,7 +11,7 @@ let
     config.xdg.configHome = configHome;
   };
 
-  home-nix = (../home + "/${username}/home.nix");
+  home-nix = (../home + "/${username}");
 in
 {
   "${username}" = home-manager.lib.homeManagerConfiguration {

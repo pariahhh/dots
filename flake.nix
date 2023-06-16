@@ -35,14 +35,15 @@
 
     secrets = import ./secrets.nix;
 
-    use-wayland = false;  
+    use-wayland = false;
+    
   in {
     homeConfigurations = import ./home/home-configuration.nix { 
       inherit home-manager nixpkgs system stateVersion host user secrets use-wayland inputs; 
     };
 
     nixosConfigurations = {
-      "prometheus" = nixpkgs.lib.nixosSystem {
+      "${host}" = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit nixpkgs system stateVersion host user secrets use-wayland inputs; };
         modules = [ 
@@ -50,7 +51,7 @@
           (./configuration.nix)
           (./systems + "/${host}/hardware.nix")
           # User
-          (./users + "/${user}/${user}.nix")
+          (./users + "/${user}")
         ];
       };
     };

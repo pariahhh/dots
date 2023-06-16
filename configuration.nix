@@ -1,5 +1,10 @@
 { config, pkgs, stateVersion, ... }: let
 in {
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
+
   environment.systemPackages = with pkgs; [
     vim
     wget
