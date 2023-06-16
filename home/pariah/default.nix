@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, ... }: let
+{ config, pkgs, username, homeDirectory, stateVersion, secrets, ... }: let
   baseconfig = { allowUnfree = true; };
 in {
   home = {

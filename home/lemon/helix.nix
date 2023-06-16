@@ -1,8 +1,8 @@
-{ config, pkgs, helix-master, ... }: 
+{ config, pkgs, inputs, ... }: 
 {
   programs.helix = {
     enable = true;
-    package = helix-master.packages."x86_64-linux".default;
+    package = inputs.helix-master.packages."x86_64-linux".default;
     settings = {
       theme = "ayu_light_transparent";
       icons = "nerdfonts";

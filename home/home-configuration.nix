@@ -1,8 +1,8 @@
-{ system, nixpkgs, home-manager, default-user, helix-master, secrets, stateVersion, hypr-contrib, flatpaks, ... }:
+{ system, nixpkgs, home-manager, user, secrets, stateVersion, inputs, ... }:
 
 let
-  username = default-user;
-  homeDirectory = "/home/${default-user}";
+  username = user;
+  homeDirectory = "/home/${user}";
   configHome = "/etc/nixos";
 
   pkgs = import nixpkgs {
@@ -16,9 +16,9 @@ in
 {
   "${username}" = home-manager.lib.homeManagerConfiguration {
     pkgs = pkgs;
-    extraSpecialArgs = { inherit helix-master username homeDirectory secrets stateVersion hypr-contrib; }; 
+    extraSpecialArgs = { inherit username homeDirectory secrets stateVersion inputs; }; 
     modules = [
-      flatpaks.homeManagerModules.default
+      inputs.flatpaks.homeManagerModules.default
       home-nix
     ];
   };

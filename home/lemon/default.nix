@@ -1,4 +1,4 @@
-{ config, pkgs, secrets, hypr-contrib, ... }: let
+{ config, pkgs, secrets, inputs, ... }: let
   baseconfig = { allowUnfree = true; };
 in {
 
@@ -183,7 +183,7 @@ in {
     bluez-tools
     blueman
   ] ++ [
-    hypr-contrib.packages.${pkgs.system}.grimblast
+    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
   ];
 
   services.flatpak = {
