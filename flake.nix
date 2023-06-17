@@ -32,8 +32,8 @@
     secrets = import "/etc/nixos/secrets.nix";
 
     # Get the host and user
-    host = (import secrets.host);
-    user = (import secrets.user);
+    host = secrets.host;
+    user = secrets.user;
 
     use-wayland = false;
     
