@@ -5,7 +5,7 @@
   boot.loader = {
     efi = {
       # canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
+      efiSysMountPoint = "/boot/EFI";
     };
     grub = {
       configurationLimit = 5;
