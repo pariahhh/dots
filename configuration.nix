@@ -11,6 +11,7 @@ in {
     vim
     wget
     firefox
+    git
   ];
   
   # Remove old builds
