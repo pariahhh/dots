@@ -12,6 +12,7 @@ in {
     wget
     firefox
     git
+    home-manager
   ];
   
   # Remove old builds

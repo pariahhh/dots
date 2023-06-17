@@ -9,7 +9,6 @@ in {
   environment.systemPackages = with pkgs; [
     pipewire
     ntfs3g
-    home-manager
 
     # GNUPG
     gnupg
