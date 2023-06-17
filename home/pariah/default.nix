@@ -26,6 +26,7 @@ in {
 
   home.packages = with pkgs; [
     steam
+    discord-canary
   ];
 
   services.flatpak = {

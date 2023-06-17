@@ -29,11 +29,11 @@
     system = "x86_64-linux";
     stateVersion = "23.05";
 
-    # Get the host and user
-    host = "prometheus";
-    user = "lemon";
-
     secrets = import ./secrets.nix;
+
+    # Get the host and user
+    host = (import secrets.host);
+    user = (import secrets.user);
 
     use-wayland = false;
     
@@ -45,7 +45,7 @@
         (./configuration.nix)
         (./systems + "/${host}/hardware.nix")
         # User
-        (./users + "/${user}")
+        (./users + "/${user}/default.nix")
       ];
     };
   in {

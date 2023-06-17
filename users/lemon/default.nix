@@ -15,13 +15,10 @@ in {
     pipewire
     ntfs3g
     home-manager
-    grapejuice
 
     # GNUPG
     gnupg
     pinentry-curses
-
-    grapejuice
   ];
 
   # bluetooth
