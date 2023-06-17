@@ -29,7 +29,7 @@
     system = "x86_64-linux";
     stateVersion = "23.05";
 
-    secrets = import ./secrets.nix;
+    secrets = import "/etc/nixos/secrets.nix";
 
     # Get the host and user
     host = (import secrets.host);
