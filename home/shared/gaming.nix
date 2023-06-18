@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; {
+  home.packages = with pkgs; [
     # Record Games
     obs-studio
 
@@ -34,5 +34,5 @@
     retroarchFull
     dolphin-emu
     pcsx2
-  };
+  ];
 }
