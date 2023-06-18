@@ -56,7 +56,11 @@ in {
 
     betterdiscordctl
     kdeconnect
-  ];
+    vlc
+    spotify
+    audacity
+    openshot-qt
+ ];
 
   services.flatpak = {
     remotes = {
