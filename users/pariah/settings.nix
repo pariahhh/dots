@@ -43,5 +43,6 @@
   # A fix for OSU
   services.udev.packages = with pkgs; [
     opentabletdriver
+    libsForQt5.xp-pen-g430-driver
   ];
 }
