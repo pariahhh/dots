@@ -1,6 +1,6 @@
-{ pkgs, ... }: let
+{ pkgs, ... }:
 
-in {
+{
   home.packages = with pkgs; {
     # Record Games
     obs-studio
