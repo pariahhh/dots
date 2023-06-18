@@ -24,7 +24,7 @@
     };
 
   fileSystems."/run/media/pariah/Games" =
-    { device = "/dev/sdb1";
+    { device = "/dev/disk/by-uuid/8db398b8-a2a8-47eb-b340-1c559fc2c088";
       fsType = "ext4";
     };
 
