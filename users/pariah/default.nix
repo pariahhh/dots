@@ -13,6 +13,9 @@ in {
     # GNUPG
     gnupg
     pinentry-curses
+
+    # Drawing tablet
+    libsForQt5.xp-pen-g430-driver
   ];
 
   # bluetooth
