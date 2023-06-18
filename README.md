@@ -15,7 +15,7 @@
 | Name | Info |
 | --- | --- |
 | OS | NixOs |
-| DE | Hyprland (Wayland) | 
+| DE | KDE Plasam (x11) | 
 | CPU | Intel i5-9600KF |
 | GPU | NVIDIA GeForce GTX 1660 SUPER |
 | Shell | Zsh |
