@@ -51,4 +51,6 @@ in {
   };
   
   services.gvfs.enable = true;
+
+  services.ratbagd.enable = true;
 }

@@ -17,11 +17,7 @@ git add README.md
 git commit -m "[SCRIPT] Updated \`eww\` README! 🚀"
 git push
 
-# Update eww git
-git checkout eww
-git add .
-git commit -m "[SCRIPT] Updated dot files! 🚀"
-git push
+
 
 # Go back
 cd $PAST

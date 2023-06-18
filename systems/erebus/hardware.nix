@@ -4,13 +4,13 @@
 
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/EFI";
+      # canTouchEfiVariables = true;
     };
     grub = {
       configurationLimit = 5;
       efiSupport = true;
-      # efiInstallAsRemovable = true;
+      efiInstallAsRemovable = true;
       device = "nodev";
       extraEntries = ''
         menuentry "Windows" {
