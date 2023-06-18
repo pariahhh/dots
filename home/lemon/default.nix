@@ -8,6 +8,7 @@ in {
   imports = [
     ./helix.nix
     ./spotify.nix
+    ../shared/gaming.nix
   ];
 
   home.sessionVariables = {

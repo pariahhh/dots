@@ -1,7 +1,7 @@
-{ pkgs, ... }: let
+{ pkgs, ... }:
 
-in {
-  home.packages = with pkgs; {
+{
+  home.packages = with pkgs; [
     # Record Games
     obs-studio
 
@@ -34,5 +34,5 @@ in {
     retroarchFull
     dolphin-emu
     pcsx2
-  };
+  ];
 }
