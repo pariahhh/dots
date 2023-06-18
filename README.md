@@ -1,4 +1,4 @@
-![Tiramisu](.github/tiramisu.jpg)
+![Tiramisu](.github/fried-ice-cream.jpg)
 
 # Directory
 - ![Homemanager](home)
