@@ -56,9 +56,6 @@ in {
 
     betterdiscordctl
     kdeconnect
-
-    # Drawing tablet
-    libsForQt5.xp-pen-g430-driver
   ];
 
   services.flatpak = {
