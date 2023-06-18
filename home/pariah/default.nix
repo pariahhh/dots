@@ -1,6 +1,10 @@
 { config, pkgs, username, homeDirectory, stateVersion, secrets, ... }: let
   baseconfig = { allowUnfree = true; };
 in {
+  imports = [
+    ../shared/gaming.nix
+  ];
+
   home = {
     inherit username homeDirectory stateVersion;
   };
