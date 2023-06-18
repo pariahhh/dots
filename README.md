@@ -34,6 +34,3 @@
 | GPU | NVIDIA GeForce GTX 1660 SUPER |
 | Shell | Zsh |
 
-# Eww Bar
-![EwwBar](.github/ewwbar.png)
-
