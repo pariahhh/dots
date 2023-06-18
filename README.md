@@ -25,6 +25,15 @@
 | GPU | NVIDIA GeForce GTX 1660 |
 | Shell | Zsh |
 
+# General Information for system `erebus`
+| Name | Info |
+| --- | --- |
+| OS | NixOs |
+| DE | Hyprland (Wayland) | 
+| CPU | Intel i5-9600KF |
+| GPU | NVIDIA GeForce GTX 1660 SUPER |
+| Shell | Zsh |
+
 # Eww Bar
 ![EwwBar](.github/ewwbar.png)
 
