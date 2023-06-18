@@ -11,6 +11,8 @@ in {
     ./settings.nix
   ];
 
+  programs.kdeconnect.enable = true;
+
   environment.systemPackages = with pkgs; [
     pipewire
     ntfs3g
