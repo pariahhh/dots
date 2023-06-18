@@ -46,7 +46,6 @@ in {
   home.packages = with pkgs; [
     discord-canary
 
-    wineWowPackages.stagingFull
     piper
 
     libsForQt5.clip
