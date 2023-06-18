@@ -34,5 +34,5 @@ in {
     retroarchFull
     dolphin-emu
     pcsx2
-  }
+  };
 }
