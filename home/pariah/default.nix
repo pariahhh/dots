@@ -44,11 +44,7 @@ in {
   };
 
   home.packages = with pkgs; [
-    # Gaming
-    steam
     discord-canary
-    obs-studio
-    lutris
 
     wineWowPackages.stagingFull
     piper
