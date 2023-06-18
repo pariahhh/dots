@@ -39,4 +39,9 @@
   # zsh default shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  # A fix for OSU
+  services.udev.packages = with pkgs; [
+    opentabletdriver
+  ];
 }
