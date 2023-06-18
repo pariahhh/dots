@@ -17,7 +17,7 @@ in {
     enable = true;
     shellAliases = {
       rebuild-system = ''echo -e "\x1b[0;32mNixOs\x1b[0m" && sudo nixos-rebuild switch --flake /etc/nixos --impure && echo -e "\x1b[0;32mHome-manager\x1b[0m" && home-manager switch --flake /etc/nixos --impure'';
-      # update-dots = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && ./update-dots.sh && cd $GOBACK'';
+      update-dots = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && ./update-dots.sh && cd $GOBACK'';
       pull-upstream = ''export GOBACK="$(pwd)" && cd /etc/nixos && git pull && cd $GOBACK'';
       edit-packages = ''nano /etc/nixos/home/pariah/default.nix'';
     };
