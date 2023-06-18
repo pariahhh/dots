@@ -60,6 +60,7 @@ in {
     spotify
     audacity
     openshot-qt
+    soundux
  ];
 
   services.flatpak = {
